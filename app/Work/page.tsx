@@ -1,40 +1,38 @@
 "use client";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
-  const containerRef = useRef(null);
+  const component = useRef();
+  const slider = useRef();
 
-  useEffect(() => {
-    const container = containerRef.current;
-
-    const section = container.querySelectorAll(".section");
-    console.log(section, 7777);
-
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: container,
-          scrub: 1,
-          pin: true,
-          start: "top top",
-          end: "+=3300",
-        },
-      })
-      .to(container, {
-        x: () =>
-          -(container.scrollWidth - document.documentElement.clientWidth - 95) +
-          "px",
-        duration: 1,
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      let panels = gsap.utils.toArray(".section");
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
         ease: "none",
+        scrollTrigger: {
+          trigger: slider.current,
+          pin: true,
+          scrub: 1,
+          snap: 1 / (panels.length - 1),
+          end: () => "+=10300",
+          markers: true,
+        },
       });
-  }, []);
+    }, component);
+    return () => ctx.revert();
+  });
 
   return (
-    <div className="w-full fg overflow-x-hidden text-black flex relative flex-col justify-start  items-start  bg-white ">
+    <div
+      ref={component}
+      className="w-full fg overflow-x-hidden text-black flex relative flex-col justify-start  items-start  bg-white "
+    >
       <div className="text-5xl  min-h-screen flex  flex-col  gap-y-36 justify-center items-center ">
         <h1 className="text-9xl leading-tight w-3xl   w-full font-extrabold">
           We craft digital experiences{" "}
@@ -59,7 +57,8 @@ const Page = () => {
         </div>
       </div>
       <div
-        ref={containerRef}
+        ref={slider}
+        // ref={containerRef}
         className="flex   main w-full  gap-x-8 py-8 gap-y-8"
       >
         <div className="section w-[100vw] bg-red-400  flex-shrink-0 flex gap-x-8  h-[100vh] ">
@@ -124,6 +123,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+      ,<div className="min-h-screen bg-gray-400 h-[100vh] "></div>
     </div>
   );
 };

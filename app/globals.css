@@ -32,7 +32,7 @@ body {
   }
 }
 
-.maskelem{
+.maskelem {
   /* background:red;
   mask-image: url("../public/bb.svg");
   -webkit-mask-image:url("../public/bb.svg"); */
@@ -46,30 +46,28 @@ body {
 
 /* Beer can */
 
-.beercan{
+.beercan {
   transform-origin: center center 0;
 }
 
-.ff{
-  font-family: var(--font-lobster) ;
+.ff {
+  font-family: var(--font-lobster);
 }
-.f2{
-  font-family: var(--font-Montserrat) ;
+.f2 {
+  font-family: var(--font-Montserrat);
 }
-.bgop{
-  background:linear-gradient(to right,#BE1241 ,#EB3D6C 50%)
-}
-
-.str{
-  text-stroke-width:1px ;
-  text-stroke-color:rgba(136, 132, 132,0.3);
-  -webkit-text-stroke-width:1px ;
-  -webkit-text-stroke-color:rgba(187, 187, 187, 0.4);
-  color:rgba(207, 203, 203, 0.1);
-
+.bgop {
+  background: linear-gradient(to right, #be1241, #eb3d6c 50%);
 }
 
-.fg{
-  
-  font-family: var(--font-space_Grotesk) ;
+.str {
+  text-stroke-width: 1px;
+  text-stroke-color: rgba(136, 132, 132, 0.3);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(187, 187, 187, 0.4);
+  color: rgba(207, 203, 203, 0.1);
+}
+
+.fg {
+  font-family: var(--font-space_Grotesk);
 }
