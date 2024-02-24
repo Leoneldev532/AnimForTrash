@@ -1,28 +1,28 @@
 import type { Metadata } from "next";
 import { Inter, Lobster, Montserrat, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header";
 
 const inter = Inter({ subsets: ["latin"] });
-const police = Lobster({ 
+const police = Lobster({
   subsets: ["latin"],
-  display: 'swap',
-  variable:'--font-lobster',
-weight:"400" });
+  display: "swap",
+  variable: "--font-lobster",
+  weight: "400",
+});
 
-const police1 = Montserrat({ 
+const police1 = Montserrat({
   subsets: ["latin"],
-  display: 'swap',
-  variable:'--font-Montserrat',
-weight:"400" });
+  display: "swap",
+  variable: "--font-Montserrat",
+  weight: "400",
+});
 
-
-const police3 = Space_Grotesk({ 
+const police3 = Space_Grotesk({
   subsets: ["latin"],
-  display: 'swap',
-  variable:'--font-space_Grotesk',
-weight:"400" });
-
+  display: "swap",
+  variable: "--font-space_Grotesk",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,16 +35,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${police.variable} ${police1.variable} ${police3.variable}`} >
-      
-      <body className={inter.className} >
+    <html
+      lang="en"
+      className={`${police.variable} ${police1.variable} ${police3.variable}`}
+    >
+      <body className={inter.className}>
         <div className="flex justify-center items-center w-full">
-        <div className="flex flex-col w-full max-w-[1550px] ">
-      {/* <Header/> */}
-        {children}
+          <div className="flex flex-col w-full max-w-[1550px] ">
+            {/* <Header/> */}
+            {children}
+          </div>
         </div>
-        </div>
-        </body>
+      </body>
     </html>
   );
 }
