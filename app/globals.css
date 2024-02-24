@@ -59,3 +59,17 @@ body {
 .bgop{
   background:linear-gradient(to right,#BE1241 ,#EB3D6C 50%)
 }
+
+.str{
+  text-stroke-width:1px ;
+  text-stroke-color:rgba(136, 132, 132,0.3);
+  -webkit-text-stroke-width:1px ;
+  -webkit-text-stroke-color:rgba(187, 187, 187, 0.4);
+  color:rgba(207, 203, 203, 0.1);
+
+}
+
+.fg{
+  
+  font-family: var(--font-space_Grotesk) ;
+}
