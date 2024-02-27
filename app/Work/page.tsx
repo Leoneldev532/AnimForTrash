@@ -12,15 +12,22 @@ const Page = () => {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       let panels = gsap.utils.toArray(".section");
+
+      function calculateEndValue(panels) {
+        return panels.length * 100;
+      }
+      let endValue = calculateEndValue(panels);
+
       gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
+        duration: 1 / (panels.length - 1),
         scrollTrigger: {
           trigger: slider.current,
           pin: true,
           scrub: 1,
           snap: 1 / (panels.length - 1),
-          end: () => "+=10300",
+          end: () => "+=" + endValue,
           markers: true,
         },
       });
@@ -123,7 +130,11 @@ const Page = () => {
           </div>
         </div>
       </div>
-      ,<div className="min-h-screen bg-gray-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-gray-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-green-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-lime-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-orange-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-emerald-400 h-[100vh] "></div>
     </div>
   );
 };
