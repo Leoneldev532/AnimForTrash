@@ -6,24 +6,32 @@ import { useLayoutEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
-  const component = useRef();
-  const slider = useRef();
-
+  const component = useRef<HTMLDivElement>();
+  const slider = useRef<HTMLDivElement>();
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       let panels = gsap.utils.toArray(".section");
-      gsap.to(panels, {
-        xPercent: -100 * (panels.length - 1),
-        ease: "none",
+      let pauseRatio = 0.1;
+      let tl = gsap.timeline({
         scrollTrigger: {
           trigger: slider.current,
           pin: true,
           scrub: 1,
           snap: 1 / (panels.length - 1),
-          end: () => "+=10300",
-          markers: true,
-        },
+          end: () => "+=" + slider.current.offsetWidth,
+          markers: true
+        }
       });
+      tl.to(
+        panels,
+        {
+          xPercent: -100 * (panels.length - 1),
+          duration: 1,
+          ease: "none"
+        },
+        pauseRatio
+      );
+      tl.to({}, { duration: pauseRatio });
     }, component);
     return () => ctx.revert();
   });
@@ -123,7 +131,23 @@ const Page = () => {
           </div>
         </div>
       </div>
-      ,<div className="min-h-screen bg-gray-400 h-[100vh] "></div>
+      <div className="ourdiv w-[100vw] bg-blue-400  flex-shrink-0 flex gap-x-8  h-[100vh] ">
+          <div className="w-1/3 max-h-[444px] bg-red-400  rounded-2xl  flex flex-col gap-y-4  p-10">
+            <h2 className="text-5xl font-bold"> Work </h2>
+            <span className="text-lg">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aut
+              dolorum, explicabo ab placeat veritatis eaque eos necessitatibus
+            </span>
+          </div>
+
+          <div className="w-1/3 max-h-[444px] bg-red-400  rounded-2xl  flex flex-col gap-y-4  p-10">
+            <h2 className="text-5xl font-bold"> Work </h2>
+            <span className="text-lg">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aut
+              dolorum, explicabo ab placeat veritatis eaque eos necessitatibus
+            </span>
+          </div>
+        </div>
     </div>
   );
 };
