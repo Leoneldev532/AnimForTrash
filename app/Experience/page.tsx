@@ -292,7 +292,7 @@ const Page = () => {
     <>
       <div className="flex flex-col relative gap-y-5">
         <div
-          //  style={{top:position.y - 20,left:position.x}}
+          style={{ top: position.y - 20, left: position.x }}
           className="fixed     pointer-events-none easeOutExpo  flex justify-center items-center z-[99999]  h-16 w-16 rounded-full bg-red-400"
         >
           <span
@@ -342,7 +342,7 @@ const Page = () => {
                 ref={num1}
                 className={`num1 ${
                   state.isActive1 ? "active" : null
-                }  text-9xl flex justify-center items-center transition-all ease duration-400 flex-shrink-0  w-36 h-full`}
+                }  text-9xl flex justify-center items-center transition-all ease-in-out flex-shrink-0  w-36 h-full`}
               >
                 {" "}
                 1{" "}
@@ -351,7 +351,7 @@ const Page = () => {
                 ref={num2}
                 className={`num2 ${
                   state.isActive2 ? "active" : null
-                }  text-9xl flex justify-center items-center transition-all ease duration-400 flex-shrink-0  w-36 h-full`}
+                }  text-9xl flex justify-center items-center transition-all ease-in-out flex-shrink-0  w-36 h-full`}
               >
                 {" "}
                 2{" "}
@@ -360,7 +360,7 @@ const Page = () => {
                 ref={num3}
                 className={`num3 ${
                   state.isActive3 ? "active" : null
-                }  text-9xl flex justify-center items-center transition-all ease duration-400 flex-shrink-0  w-36 h-full`}
+                }  text-9xl flex justify-center items-center transition-all ease-in-out flex-shrink-0  w-36 h-full`}
               >
                 {" "}
                 3{" "}
@@ -369,7 +369,7 @@ const Page = () => {
                 ref={num4}
                 className={`num4 ${
                   state.isActive4 ? "active" : null
-                }   text-9xl flex justify-center items-center transition-all ease duration-400 flex-shrink-0  w-36 h-full`}
+                }   text-9xl flex justify-center items-center transition-all ease-in-out flex-shrink-0  w-36 h-full`}
               >
                 {" "}
                 4{" "}
