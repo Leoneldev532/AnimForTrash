@@ -1,65 +1,70 @@
 "use client"
-    import Image from 'next/image'
+import Image from 'next/image'
 import React, { MouseEvent, useEffect, useRef, useState } from 'react'
 import photo1 from "@/public/photo.png"
 import landscape from "@/public/landscape.jpg"
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
-    const Page = () => {
-
-            const im1 = useRef(null)
-            const im2 = useRef(null)
-            const im3 = useRef(null)
-            const im4 = useRef(null)
-            const cursorCircle = useRef(null)
-
-
-            const [position, setPosition] = useState({x:  0, y:  0});
-
-            const addPosition = (e:MouseEvent) => {
-                setPosition({x: e.clientX, y: e.clientY});
-            };   
+   
+  const Page = () => {
+    const im1 = useRef(null)
+    const im2 = useRef(null)
+    const im3 = useRef(null)
+    const im4 = useRef(null)
+  
+    const cursorCircle = useRef<HTMLDivElement | null>(null);
+  
+    const [position, setPosition] = useState({x: 0, y: 0});
+  
+    const addPosition = (e: MouseEvent) => {
+        setPosition({x: e.clientX, y: e.clientY});
+    };
+  
+    useEffect(() => {
+        if (im1.current && cursorCircle.current) {
+            im1.current.addEventListener("mouseover", () => {
+                cursorCircle.current.textContent = "👨‍🎓";
+            });
+  
+            im1.current.addEventListener("mouseleave", () => {
+                cursorCircle.current.textContent = " ";
+            });
+        }
+  
+        window.addEventListener('mousemove', addPosition);
+        return () => {
+            window.removeEventListener('mousemove', addPosition);
+        };
+    }, []);
+  
+    useEffect(() => {
  
-         
-          
-            gsap.registerPlugin(ScrollTrigger);
-            
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                  trigger: ".card1exp",
-                  start: "top  50%",  
-                  end: "bottom bottom",  
-                  scrub: false,  
-                  markers: true,  
-                  toggleActions: "play none none reverse"
-                }
-              });
-            useEffect(() => {
-                  tl.to(".card1exp", {
-                    clipPath: "polygon(0%   0%,   100%   0%,   100%   100%,   0%   100%)",
-                    duration:  1.5,
-                    ease: "Circ.out"
-                  })
-                  .to(".im", {
-                    scale:  1.2,
-                    duration:  1.4
-                  }, "-=0.5");  
-             
-                im1.current?.addEventListener("mouseover", () => {
-                    cursorCircle.current.textContent = "👨‍🎓";
-                });
-                
-                im1.current?.addEventListener("mouseleave", () => {
-                    cursorCircle.current.textContent = " ";
-                });
-                
-                window.addEventListener('mousemove', addPosition);
-                return () => {
-                    window.removeEventListener('mousemove', addPosition);
-                };
-            }, []);
-
-            
+          gsap.registerPlugin(ScrollTrigger);
+  
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".card1exp",
+              start: "top 80%",
+              end: "bottom bottom",
+              scrub: false,
+              markers: true,
+              toggleActions: "play none none reverse"
+            }
+          });
+          tl.fromTo(".card1exp",{
+            clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+          }, {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 1.5,
+            ease: "Circ.out"
+          })
+          .to(".im", {
+            scale: 1.2,
+            duration: 1.4
+          }, "-=0.5");
+     
+      
+    }, []);
 
 
       return (

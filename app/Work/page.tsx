@@ -3,9 +3,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useLayoutEffect, useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   const component = useRef<HTMLDivElement>();
   const slider = useRef<HTMLDivElement>();
   useLayoutEffect(() => {
