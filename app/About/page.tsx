@@ -84,7 +84,7 @@ const Page = () => {
         <h2 className="text-5xl font-bold py-16"> my caps </h2>
         <div className="w-full  flex gap-x-10 py-16 ">
           <div className="flex cursor-pointer  rounded-xl overflow-hidden  translate-y-36 flex-col gap-y-4 w-1/2">
-            <div className="w-full h-[547px]  bg-black overflow-hidden">
+            <div className="w-full h-[547px] rounded-xl  bg-black overflow-hidden">
               <Image
                 src={photo}
                 alt="instituteur"
@@ -95,12 +95,12 @@ const Page = () => {
               Instituteur en Integration Web
             </span>
           </div>
-          <div className="flex w-1/2  rounded-lg overflow-hidden flex-col gap-y-4 ">
-            <div className="w-full cursor-pointer h-[547px]  bg-black overflow-hidden">
+          <div className="flex w-1/2  rounded-xl overflow-hidden flex-col gap-y-4 ">
+            <div className="w-full  rounded-xl  cursor-pointer h-[547px]  bg-black overflow-hidden">
               <Image
                 src={photo}
                 alt="instituteur"
-                className="h-full w-full rounded-lg  object-cover"
+                className="h-full w-full rounded-xl  object-cover"
               />
             </div>
             <span className="text-2xl opacity-60">Front-End developper</span>
