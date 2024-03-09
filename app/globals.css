@@ -83,3 +83,7 @@ body {
 .police4 {
   font-family: var(--font-Andada_Pro);
 }
+
+.bg {
+  background-image: url("../public/grain.png");
+}

@@ -53,8 +53,8 @@ export default function RootLayout({
       className={`${police.variable} ${police1.variable} ${police3.variable} ${police4.variable}`}
     >
       <body className={inter.className}>
-        <div className="flex justify-center items-center w-full">
-          <div className="flex flex-col w-full max-w-[1550px] ">
+        <div className="bg bg-white flex justify-center items-center w-full">
+          <div className="flex flex-col w-full xl:max-w-[1550px] ">
             {/* <Header/> */}
             {children}
           </div>
