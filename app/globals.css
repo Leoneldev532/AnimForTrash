@@ -73,10 +73,14 @@ body {
 }
 
 .easeOutExpo {
-    transition: all  0.7s cubic-bezier(0.19,  1,  0.22,  1);
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.card1exp{
-  clip-path:polygon(0 0, 0 0, 0 100%, 0 100%);
+
+.card1exp {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
 }
 
+.police4 {
+  font-family: var(--font-Andada_Pro);
+}

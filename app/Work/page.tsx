@@ -5,34 +5,32 @@ import { useLayoutEffect, useRef } from "react";
 
 
 const Page = () => {
-  gsap.registerPlugin(ScrollTrigger);
 
-  const component = useRef<HTMLDivElement>();
-  const slider = useRef<HTMLDivElement>();
+  const component = useRef();
+  const slider = useRef();
+
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       let panels = gsap.utils.toArray(".section");
-      let pauseRatio = 0.1;
-      let tl = gsap.timeline({
+
+      function calculateEndValue(panels) {
+        return panels.length * 100;
+      }
+      let endValue = calculateEndValue(panels);
+
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
+        ease: "none",
+        duration: 1 / (panels.length - 1),
         scrollTrigger: {
           trigger: slider.current,
           pin: true,
           scrub: 1,
           snap: 1 / (panels.length - 1),
-          end: () => "+=" + slider.current.offsetWidth,
-          markers: true
-        }
-      });
-      tl.to(
-        panels,
-        {
-          xPercent: -100 * (panels.length - 1),
-          duration: 1,
-          ease: "none"
+          end: () => "+=" + endValue,
+          markers: true,
         },
-        pauseRatio
-      );
-      tl.to({}, { duration: pauseRatio });
+      });
     }, component);
     return () => ctx.revert();
   });
@@ -132,23 +130,11 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="ourdiv w-[100vw] bg-blue-400  flex-shrink-0 flex gap-x-8  h-[100vh] ">
-          <div className="w-1/3 max-h-[444px] bg-red-400  rounded-2xl  flex flex-col gap-y-4  p-10">
-            <h2 className="text-5xl font-bold"> Work </h2>
-            <span className="text-lg">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aut
-              dolorum, explicabo ab placeat veritatis eaque eos necessitatibus
-            </span>
-          </div>
-
-          <div className="w-1/3 max-h-[444px] bg-red-400  rounded-2xl  flex flex-col gap-y-4  p-10">
-            <h2 className="text-5xl font-bold"> Work </h2>
-            <span className="text-lg">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aut
-              dolorum, explicabo ab placeat veritatis eaque eos necessitatibus
-            </span>
-          </div>
-        </div>
+      <div className="w-[100vw] bg-gray-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-green-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-lime-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-orange-400 h-[100vh] "></div>
+      <div className="w-[100vw] bg-emerald-400 h-[100vh] "></div>
     </div>
   );
 };
