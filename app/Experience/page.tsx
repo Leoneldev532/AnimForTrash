@@ -26,40 +26,40 @@ const Page = () => {
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  // gsap.registerPlugin(ScrollTrigger);
-
   const addPosition = (e: MouseEvent) => {
     setPosition({ x: e.clientX, y: e.clientY });
   };
 
   const tl = gsap.timeline();
-  const rl = gsap.timeline();
+  const rl = gsap.timeline({
+    onComplete: function () {},
+  });
   const kl = gsap.timeline();
   const el = gsap.timeline();
   const il = gsap.timeline();
 
   useEffect(() => {
-    tl.to(".card1exp", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 1.5,
-      ease: "Circ.out",
+    // tl.to(".card1exp", {
+    //   clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    //   duration: 1.5,
+    //   ease: "Circ.out",
 
-      scrollTrigger: {
-        trigger: ".card1exp",
-        start: "top 50%",
-        end: "bottom bottom",
-        scrub: false,
-        markers: true,
-        toggleActions: "play reverse reverse reverse",
-      },
-    }).to(
-      ".im",
-      {
-        scale: 1.2,
-        duration: 1.4,
-      },
-      "-=0.5"
-    );
+    //   scrollTrigger: {
+    //     trigger: ".card1exp",
+    //     start: "top 50%",
+    //     end: "bottom bottom",
+    //     scrub: false,
+    //     markers: true,
+    //     toggleActions: "play reverse reverse reverse",
+    //   },
+    // }).to(
+    //   ".im",
+    //   {
+    //     scale: 1.2,
+    //     duration: 1.4,
+    //   },
+    //   "-=0.5"
+    // );
 
     const handleMouseOver = () => {
       if (cursorCircle.current) {
@@ -244,7 +244,6 @@ const Page = () => {
             .to(
               ".num1",
               {
-                delay: 0.2,
                 y: "-300%",
                 duration: 0.5,
 
@@ -281,13 +280,12 @@ const Page = () => {
         }
       });
     }
-
     window.addEventListener("mousemove", addPosition);
     return () => {
       window.removeEventListener("mousemove", addPosition);
     };
   }, []);
-
+  // lkfd;kg;l
   return (
     <>
       <div className="flex flex-col relative gap-y-5">
