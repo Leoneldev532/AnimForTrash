@@ -6,14 +6,17 @@ import musique from "@/public/musique.svg";
 import photo from "@/public/photo.png";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { DrawSVGPlugin, ScrollTrigger } from "gsap/all";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
 const Page = () => {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(DrawSVGPlugin);
 
   const tl = gsap.timeline();
+  //draws all elements with the "draw-me" class applied
+  gsap.set(".draw-me", { duration: 1, drawSVG: 0 });
 
   useEffect(() => {
     tl.to(".divim1,.divim2", {
@@ -105,11 +108,12 @@ const Page = () => {
         height={141}
         viewBox="0 0 1452 141"
         fill="none"
+        className="path"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M1451 65.3435C1391 108.01 1444.5 -98.6565 1241.5 65.3435C1181.5 108.01 1277.5 -80.1448 1074.5 83.8552C1014.5 126.522 1035 -72.9883 832 91.0117C772 133.678 703 -53 500 111C440 153.667 413.5 -36.5 210.5 127.5C150.5 170.167 204 -23.5 1 140.5"
-          stroke="black"
+          stroke="#cfcfcf"
         />
       </svg>
 
@@ -150,7 +154,7 @@ const Page = () => {
       >
         <path
           d="M1451 65.3435C1391 108.01 1444.5 -98.6565 1241.5 65.3435C1181.5 108.01 1277.5 -80.1448 1074.5 83.8552C1014.5 126.522 1035 -72.9883 832 91.0117C772 133.678 703 -53 500 111C440 153.667 413.5 -36.5 210.5 127.5C150.5 170.167 204 -23.5 1 140.5"
-          stroke="black"
+          stroke="#cfcfcf"
         />
       </svg>
 
