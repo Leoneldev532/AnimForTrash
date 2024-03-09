@@ -87,3 +87,7 @@ body {
 .bg {
   background-image: url("../public/grain.png");
 }
+
+.divim1 {
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}

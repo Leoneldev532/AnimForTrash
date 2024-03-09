@@ -1,6 +1,7 @@
 "use client";
 import vector from "@/public/Vector 1.png";
 import dessin from "@/public/dessin.svg";
+import landscape from "@/public/landscape.jpg";
 import musique from "@/public/musique.svg";
 import photo from "@/public/photo.png";
 import Lenis from "@studio-freight/lenis";
@@ -11,6 +12,24 @@ import Image from "next/image";
 import { useEffect } from "react";
 const Page = () => {
   gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline();
+
+  useEffect(() => {
+    tl.to(".divim1,.divim2", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      scale: 0.8,
+      opacity: 1,
+      duration: 0.4,
+      scrollTrigger: {
+        // trigger: ".containertof",
+        start: "+=800",
+        end: "+=200",
+        markers: true,
+        scrub: 1,
+      },
+    });
+  });
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -35,7 +54,7 @@ const Page = () => {
           <Image alt="kkkk" src={vector} className="object-cover" />
         </div>
         <div className="flex flex-col z-10   text-black gap-y-4 px-16 w-1/2">
-          <div className="rounded-full bg-black overflow-hidden h-96 w-96">
+          <div className=" rounded-full bg-black overflow-hidden h-96 w-96">
             <Image
               alt="hello"
               src={photo}
@@ -80,25 +99,39 @@ const Page = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col   p-16  w-full">
+
+      <svg
+        width={1452}
+        height={141}
+        viewBox="0 0 1452 141"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1451 65.3435C1391 108.01 1444.5 -98.6565 1241.5 65.3435C1181.5 108.01 1277.5 -80.1448 1074.5 83.8552C1014.5 126.522 1035 -72.9883 832 91.0117C772 133.678 703 -53 500 111C440 153.667 413.5 -36.5 210.5 127.5C150.5 170.167 204 -23.5 1 140.5"
+          stroke="black"
+        />
+      </svg>
+
+      <div className="flex flex-col  containertof  p-16  w-full">
         <h2 className="text-5xl font-bold py-16"> my caps </h2>
-        <div className="w-full  flex gap-x-10 py-16 ">
-          <div className="flex cursor-pointer  rounded-xl overflow-hidden  translate-y-36 flex-col gap-y-4 w-1/2">
-            <div className="w-full h-[547px] rounded-xl  bg-black overflow-hidden">
+        <div className="w-full  flex gap-x-16 py-16 ">
+          <div className="flex divim1 opacity-0 cursor-pointer  rounded-xl overflow-hidden  translate-y-36 flex-col gap-y-4 w-1/2">
+            <div className="  w-full h-[547px] rounded-xl  bg-black overflow-hidden">
               <Image
-                src={photo}
+                src={landscape}
                 alt="instituteur"
-                className="h-full w-full rounded-xl  object-cover"
+                className="h-full  w-full rounded-xl  object-cover"
               />
             </div>
             <span className="text-2xl opacity-60">
               Instituteur en Integration Web
             </span>
           </div>
-          <div className="flex w-1/2  rounded-xl overflow-hidden flex-col gap-y-4 ">
-            <div className="w-full  rounded-xl  cursor-pointer h-[547px]  bg-black overflow-hidden">
+          <div className="flex divim2 w-1/2  opacity-0 rounded-xl overflow-hidden flex-col gap-y-4 ">
+            <div className="  w-full h-[547px] rounded-xl  overflow-hidden">
               <Image
-                src={photo}
+                src={landscape}
                 alt="instituteur"
                 className="h-full w-full rounded-xl  object-cover"
               />
@@ -107,6 +140,19 @@ const Page = () => {
           </div>
         </div>
       </div>
+
+      <svg
+        width={1452}
+        height={141}
+        viewBox="0 0 1452 141"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1451 65.3435C1391 108.01 1444.5 -98.6565 1241.5 65.3435C1181.5 108.01 1277.5 -80.1448 1074.5 83.8552C1014.5 126.522 1035 -72.9883 832 91.0117C772 133.678 703 -53 500 111C440 153.667 413.5 -36.5 210.5 127.5C150.5 170.167 204 -23.5 1 140.5"
+          stroke="black"
+        />
+      </svg>
 
       <div className="flex flex-col   p-16  w-full">
         <h2 className="text-5xl font-bold py-16"> My Hobbies </h2>
