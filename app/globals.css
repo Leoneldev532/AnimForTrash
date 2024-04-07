@@ -51,7 +51,7 @@ body {
 }
 
 .ff {
-  font-family: var(--font-lobster);
+  font-family: var(--font-baskerville);
 }
 .f2 {
   font-family: var(--font-Montserrat);
@@ -85,10 +85,24 @@ body {
   font-family: var(--font-Andada_Pro);
 }
 
-.bg {
+/* .bg {
   background-image: url("../public/grain.png");
-}
+} */
 
 .divim1 {
   clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 }
+
+.linkheader .word{
+  overflow: hidden;
+  height: 28px;
+}
+.cardme{
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)
+}
+
+.word,
+.line {
+  overflow: hidden !important;
+}
+  
