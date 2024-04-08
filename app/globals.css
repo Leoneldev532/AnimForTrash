@@ -76,7 +76,6 @@ body {
   transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-
 .card1exp {
   clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
 }
@@ -93,16 +92,15 @@ body {
   clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 }
 
-.linkheader .word{
+.linkheader .word {
   overflow: hidden;
   height: 28px;
 }
-.cardme{
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)
+.cardme {
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 
 .word,
 .line {
   overflow: hidden !important;
 }
-  
