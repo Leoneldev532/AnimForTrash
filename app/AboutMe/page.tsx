@@ -6,9 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
-import SplitType from "split-type";
 import CardVideo from "../composants/CardWork";
+import Transition from "../composants/Transition";
 const Page = () => {
   // const videoref = useRef<HTMLVideoElement | null>()
   // const hoverbloc = useRef<HTMLDivElement | null >()
@@ -29,19 +28,57 @@ const Page = () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  const tl = gsap.timeline();
+
   useGSAP(() => {
-    const tl = gsap.timeline({ delay: 1.8 });
+    const text4 = document.querySelectorAll(".txt4");
+
+    // text4.forEach((char: any) => {
+    //   const text = new SplitType(char, { types: "chars,words,lines" });
+
+    //   tl.fromTo(
+    //     text.words,
+    //     {
+    //       y: 100,
+    //       opacity: 0,
+    //     },
+    //     {
+    //       y: 0,
+    //       delay: 0.2,
+    //       opacity: 1,
+    //       duration: 0.7,
+    //       ease: "power3",
+    //       stagger: {
+    //         amount: 0.2,
+    //       },
+    //       transformOrigin: " 45.5234px 14px",
+    //       scrollTrigger: {
+    //         trigger: char,
+    //         start: "top 95%",
+    //         end: "bottom 95%",
+    //         scrub: 7,
+    //         markers: true,
+    //         toggleActions: "restart none none reverse",
+    //       },
+    //     }
+    //   );
+    // });
+
     const cardme: HTMLDivElement[] = gsap.utils.toArray(".cardme");
     const im: HTMLDivElement[] = gsap.utils.toArray(".im");
 
     gsap.registerPlugin(ScrollTrigger);
 
-    tl.to(cardme, {
-      duration: 0.7,
-      stagger: 0.2,
-      ease: "sine",
-      clipPath: " polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-    })
+    tl.to(
+      cardme,
+      {
+        duration: 0.7,
+        stagger: 0.2,
+        ease: "sine",
+        clipPath: " polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+      },
+      "-=1.3"
+    )
       .to(
         im,
         {
@@ -84,13 +121,6 @@ const Page = () => {
         "<"
       );
 
-    //    if( hoverbloc.current   ){
-    //    hoverbloc.current?.addEventListener("mouseover",()=>{
-    //         hoverbloc.current.style.padding= "14px"
-    //    })
-
-    //   }
-
     const lenis = new Lenis();
 
     lenis.on("scroll", (e: any) => {});
@@ -102,68 +132,11 @@ const Page = () => {
     });
 
     gsap.ticker.lagSmoothing(0);
-
-    //    if(videoref.current){
-    //    const observer = new IntersectionObserver(
-    //     (entries) => {
-    //       entries.forEach((entry) => {
-    //         if (entry.isIntersecting) {
-
-    //             videoref.current.play()
-
-    //         } else {
-    //             videoref.current.pause()
-    //         }
-    //       });
-    //     },
-    //     { threshold: 0.5 }
-    //   );
-
-    //   if (videoref.current) {
-    //     observer.observe(videoref.current);
-    //   }
-    // }
-  });
-  useEffect(() => {
-    const tl = gsap.timeline();
-
-    const text4 = document.querySelectorAll(".txt4");
-
-    text4.forEach((char: any) => {
-      const text = new SplitType(char, { types: "lines,words" });
-
-      tl.fromTo(
-        text.words,
-        {
-          y: 100,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          delay: 0.2,
-          opacity: 1,
-          duration: 0.7,
-          ease: "power3",
-          stagger: {
-            amount: 0.2,
-          },
-          transformOrigin: " 45.5234px 14px",
-          scrollTrigger: {
-            trigger: char,
-            start: "top 95%",
-            end: "bottom 95%",
-            scrub: 7,
-            markers: true,
-            toggleActions: "restart none none reverse",
-          },
-        },
-        "<"
-      );
-    });
   });
 
   return (
-    <div className="flex flex-col  w-full  text-black gap-y-4 justify-center items-center">
+    <div className="flex   relative flex-col  grayscale fontt top-0 left-0   w-full  text-black gap-y-4 justify-center items-center">
+      <Transition timeline={tl} />
       <div className="w-full px-10 flex justify-between items-end">
         <div className="cardme h-[550px] w-[470px] bg-gray-400/40 ">
           <Image
@@ -181,8 +154,8 @@ const Page = () => {
             <p className="text-sm cvbtn text-center">GET MY CV</p>
           </Link>
 
-          <div className=" py-2  overflow-hidden text-7xl">
-            <h1 className="myname">Leonel Yimga </h1>
+          <div className=" py-2  overflow-hidden text-9xl">
+            <h1 className="myname fontt">Leonel Yimga </h1>
           </div>
 
           <div className=" py-2  overflow-hidden text-3xl">
@@ -212,7 +185,7 @@ const Page = () => {
         </div>
 
         <div className="flex flex-col gap-y-16 w-full">
-          <h2 className="text-4xl font-bold  ff ">
+          <h2 className="text-4xl txt4  font-bold  ff ">
             {" "}
             MES PASSES TEMPS FAVORIS{" "}
           </h2>
@@ -282,34 +255,31 @@ const Page = () => {
               <div className="w-3/12 flex-shrink-0 h-[40vh] bg-blue-400 rounded-2xl "></div>
             </div>
 
-            <div className="flex flex-col w-8/12 py-16 ">
+            <div className="flex   py-16 ">
               <h3 className="text-3xl italic ff">I can help you</h3>
+              <div className="flex flex-col gap-y-4 ">
+                <div className="flex flex-col mt-8 py-6 gap-y-6 border-black/20 border-y">
+                  <span className="italic text-2xl"> Web integration </span>
 
-              <div className="flex flex-col mt-8 py-6 gap-y-6 border-black/20 border-y">
-                <span className="italic text-2xl"> Web integration </span>
+                  <p className="italic text-lg txt4 text-black/60">
+                    Turn concepts into captivating interactive experiences.
+                    Mastery of languages and JS frameworks to craft modern,
+                    responsive interfaces.
+                  </p>
+                </div>
 
-                <p className="italic text-xl txt4 text-black/60">
-                  Lorem ipsum I can help you on Lorem ipsum I can help you on
-                  Lorem ipsum I can help you on Lorem ipsum
-                </p>
-              </div>
+                <div className="flex  py-6 gap-y-6 border-black/20 border-y">
+                  <span className="italic text-2xl txt4">
+                    {" "}
+                    Web integration{" "}
+                  </span>
 
-              <div className="flex flex-col  py-6 gap-y-6 border-black/20 border-y">
-                <span className="italic text-2xl txt4"> Web integration </span>
-
-                <p className="italic text-xl txt4  text-black/60">
-                  Lorem ipsum I can help you on Lorem ipsum I can help you on
-                  Lorem ipsum I can help you on Lorem ipsum
-                </p>
-              </div>
-
-              <div className="flex flex-col  py-6 gap-y-6 border-black/20 border-y">
-                <span className="italic text-2xl txt4"> Web integration </span>
-
-                <p className="italic text-xl txt4 text-black/60">
-                  Lorem ipsum I can help you on Lorem ipsum I can help you on
-                  Lorem ipsum I can help you on Lorem ipsum
-                </p>
+                  <p className=" text-lg txt4  text-black/60">
+                    Transition designs from paper to pixel with precision. Build
+                    aesthetic, user-friendly, and cross-compatible websites
+                    using the latest integration techniques.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

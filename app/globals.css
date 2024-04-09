@@ -104,3 +104,16 @@ body {
 .line {
   overflow: hidden !important;
 }
+
+@font-face {
+  font-family: "powergro";
+  src: url("../public/PowerGrotesk-Regular.ttf");
+}
+
+.fontt {
+  font-family: "powergro";
+}
+
+.trans {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
