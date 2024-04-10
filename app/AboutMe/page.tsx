@@ -8,6 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import CardVideo from "../composants/CardWork";
 import Transition from "../composants/Transition";
+import SplitType from "split-type";
+import PasseTempsCard from "../composants/passeTempsCard";
 const Page = () => {
   // const videoref = useRef<HTMLVideoElement | null>()
   // const hoverbloc = useRef<HTMLDivElement | null >()
@@ -31,39 +33,7 @@ const Page = () => {
   const tl = gsap.timeline();
 
   useGSAP(() => {
-    const text4 = document.querySelectorAll(".txt4");
-
-    // text4.forEach((char: any) => {
-    //   const text = new SplitType(char, { types: "chars,words,lines" });
-
-    //   tl.fromTo(
-    //     text.words,
-    //     {
-    //       y: 100,
-    //       opacity: 0,
-    //     },
-    //     {
-    //       y: 0,
-    //       delay: 0.2,
-    //       opacity: 1,
-    //       duration: 0.7,
-    //       ease: "power3",
-    //       stagger: {
-    //         amount: 0.2,
-    //       },
-    //       transformOrigin: " 45.5234px 14px",
-    //       scrollTrigger: {
-    //         trigger: char,
-    //         start: "top 95%",
-    //         end: "bottom 95%",
-    //         scrub: 7,
-    //         markers: true,
-    //         toggleActions: "restart none none reverse",
-    //       },
-    //     }
-    //   );
-    // });
-
+    
     const cardme: HTMLDivElement[] = gsap.utils.toArray(".cardme");
     const im: HTMLDivElement[] = gsap.utils.toArray(".im");
 
@@ -77,7 +47,7 @@ const Page = () => {
         ease: "sine",
         clipPath: " polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
       },
-      "-=1.3"
+      "-=0.8"
     )
       .to(
         im,
@@ -132,6 +102,40 @@ const Page = () => {
     });
 
     gsap.ticker.lagSmoothing(0);
+
+    const text4 = document.querySelectorAll(".txt4");
+
+    text4.forEach((char: any) => {
+      const text = new SplitType(char, { types: "chars,words,lines" });
+
+      tl.fromTo(
+        text.words,
+        {
+          y: 100,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          delay: 0.2,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3",
+          stagger: {
+            amount: 0.2,
+          },
+          transformOrigin: " 45.5234px 14px",
+          scrollTrigger: {
+            trigger: char,
+            start: "top 95%",
+            end: "bottom 95%",
+            scrub: 7,
+            markers: true,
+            toggleActions: "restart none none reverse",
+          },
+        }
+      );
+    });
+
   });
 
   return (
@@ -154,7 +158,7 @@ const Page = () => {
             <p className="text-sm cvbtn text-center">GET MY CV</p>
           </Link>
 
-          <div className=" py-2  overflow-hidden text-9xl">
+          <div className=" py-2 flex justify-start overflow-hidden text-7xl">
             <h1 className="myname fontt">Leonel Yimga </h1>
           </div>
 
@@ -195,15 +199,9 @@ const Page = () => {
 
             <div className="w-full flex flex-col">
               <div className="flex border-b border-t cursor-pointer p-4 w-full border-black gap-x-4 justify-end items-end ">
-                <div className="w-full h-full flex justify-between items-center">
-                  <span className="text-5xl h-full flex justify-center items-center">
-                    {" "}
-                    *{" "}
-                  </span>
-                  <h2 className="uppercase text-3xl  font-extrabold">
-                    {" "}
-                    programing{" "}
-                  </h2>
+                <div className="relative w-full h-full flex justify-between items-center">
+                
+                  <PasseTempsCard texte="programming" />
                 </div>
               </div>
               <div className="flex border-b p-4 w-full cursor-pointer border-black gap-x-4 justify-end items-end ">

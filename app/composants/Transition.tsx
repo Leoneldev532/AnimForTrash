@@ -23,22 +23,9 @@ const Transition = ({ timeline }: { timeline: gsap.core.Timeline }) => {
           height: "auto",
           overflow: "visible",
         })
-        .to(".wel", {
-          duration: 0.8,
-          ease: "power3",
-          scale: 10,
-          x: -440,
-        })
-        .to(
-          ".eletter",
-          {
-            duration: 1.8,
-            ease: "sine.inOut",
-            scale: 40,
-          },
-          "<"
-        ).to(".trans", {
-            
+        .to(".trans", {
+          clipPath : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+          duration:1.2
         });
     });
   });

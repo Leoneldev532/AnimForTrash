@@ -115,5 +115,12 @@ body {
 }
 
 .trans {
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+.abstitlepassetime{
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+.PasseTempsCard:hover .abstitlepassetime{
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
