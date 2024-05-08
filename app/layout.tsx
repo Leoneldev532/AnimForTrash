@@ -1,16 +1,11 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import {
-  Acme,
   Inter,
   Libre_Baskerville,
   Montserrat,
-  Space_Grotesk,
+  Poppins,
+  Space_Grotesk
 } from "next/font/google";
-import { useEffect, useState } from "react";
-import SplitType from "split-type";
-import Header from "./Component/header";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,11 +30,11 @@ const police3 = Space_Grotesk({
   weight: "400",
 });
 
-const police4 = Acme({
+const police4 = Poppins({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-Andada_Pro",
-  weight: "400",
+  variable: "--font-Poppins",
+  weight: "300",
 });
 
 // export const metadata: Metadata = {
@@ -57,13 +52,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={``}
+      className={`${police4.variable}`}
     >
       <body className={inter.className + "relative  text-white  "}>
-        <div className=" bg-custom-red min-h-screen relative flex justify-start items-start w-full">
+        <div className="min-h-screen relative flex justify-start items-start w-full">
           
           <div className="flex flex-col w-full overflow-hidden  ">
-            <Header/>
+            {/* <Header/> */}
             {children}
           </div>
         </div>
