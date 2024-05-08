@@ -88,7 +88,7 @@ import { useEffect, useRef } from 'react'
 
       <div className="flex flex-col relative min-h-screen text-black justify-center h-full items-center w-full">
 
-        <div className="absolute  left-[80%]  top-[30%] ">
+        <div className="absolute  left-[40%] top-[0%] lg:left-[80%]  lg:top-[30%] ">
 
         <svg
   width={802}
@@ -128,16 +128,17 @@ import { useEffect, useRef } from 'react'
 
         </div>
 
-                <div className="justify-start items-start flex-col gap-y-2 flex py-14 w-8/12 ">
-                  <h1 className="text-4xl text-balance font-extrabold max-w-lg leading-normal">
+                <div className="justify-start  w-full items-start flex-col gap-y-2 flex py-5 xl:py-14 lg:px-0 px-4 sm:w-11/12 lg:w-9/12 2xl:w-8/12 ">
+                  <h1 className="text-3xl lg:text-4xl lg:text-balance font-extrabold w-full max-w-full md:max-w-lg leading-normal">
                     Les lieux touristiques fantastiques et tres beau
                   </h1>
                   <span className="border-2 border-blue-400 font-bold  py-1 px-4  rounded-full "> Code By Leonel Yimga </span>
                 </div>
-                <div className="w-full flex justify-center  items-start h-full "> 
+
+                <div className="w-full flex justify-center  gap-y-8 xl:flex-row flex-col-reverse items-center xl:items-start h-full "> 
 
 
-              <div className="flex min-h-screen flex-col gap-y-8   w-1/3 justify-start items-start ">
+              <div className=" min-h-screen  gap-8  w-full flex px-4 lg:px-36 xl:px-0 justify-start items-center flex-col xl:w-1/2 2xl:w-1/3 xl:justify-start xl:items-start ">
 
               <div className='flex justify-start w-full items-start gap-x-4'> 
                       <div className="progressligne h-36 min-w-1 rounded-sm bg-gray-200 ">
@@ -150,7 +151,7 @@ import { useEffect, useRef } from 'react'
                         <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
                         Parc national de Yosemite
                         </h2>
-                        <p className="text-sm max-w-md">
+                        <p className="text-xs md:text-sm max-w-md">
                         Il est célèbre pour ses chutes d&apos;eau spectaculaires, ses falaises de granit imposantes et ses séquoias géants. Les visiteurs peuvent profiter de randonnées pédestres, d&apos;escalade, de camping et de photographie dans ce parc magnifique. </p>
                         </div>
                       </div>
@@ -170,7 +171,7 @@ import { useEffect, useRef } from 'react'
                         <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
                         Plage de Navagio
                         </h2>
-                        <p className="text-sm max-w-md">
+                        <p className="text-xs md:text-sm max-w-md">
                         La plage de Navagio est une baie isolée sur l île de Zante en Grèce. Elle est accessible uniquement par bateau et est entourée de falaises calcaires escarpées
                       </p> </div>
                       </div>
@@ -191,7 +192,7 @@ import { useEffect, useRef } from 'react'
                         <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
                         Forêt amazonienne
                         </h2>
-                        <p className="text-sm max-w-md">
+                        <p className="text-xs md:text-sm max-w-md">
                         Elle abrite une biodiversité incroyablement riche, y compris des milliers d espèces de plantes, d animaux et d insectes. Les visiteurs peuvent explorer la forêt en bateau, en kayak ou à pied, et découvrir les cultures indigènes qui vivent dans la région.
                         </p>
                         </div>
@@ -209,7 +210,7 @@ import { useEffect, useRef } from 'react'
                         <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
                         Canyon de l&apos;Antilope 
                         </h2>
-                        <p className="text-sm max-w-md">
+                        <p className="text-xs md:text-sm max-w-md">
                         Les visiteurs peuvent explorer le canyon à pied avec un guide et prendre des photos étonnantes des formations rocheuses. Le canyon est particulièrement beau pendant les heures de lumière du jour, lorsque les rayons du soleil pénètrent dans les fissures et créent des effets de lumière spectaculaires </p>
                         </div>
                       </div>
@@ -221,7 +222,7 @@ import { useEffect, useRef } from 'react'
 
                 </div>
 
-                <div className="w-1/3 rounded-xl flex justify-start overflow-hidden relative   items-start  h-[750px]  ">
+                <div className="xl:w-1/3 w-11/12 lg:w-9/12 xl:px-0  rounded-xl flex justify-center items-center xl:justify-start overflow-hidden relative h-[40vh]  xl:items-start lg:h-[450px]  xl:h-[750px]  ">
 
                     <div className="imageslide  absolute transition-all ease-out duration-500 rounded-xl  overflow-hidden  h-[550px]  w-full" >
                         <Image src={image1} className=" z-0 w-full h-full object-cover  "  alt="image" />
