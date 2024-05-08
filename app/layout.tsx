@@ -10,7 +10,7 @@ import {
 } from "next/font/google";
 import { useEffect, useState } from "react";
 import SplitType from "split-type";
-import Header from "./composants/Header";
+import Header from "./Component/header";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -52,49 +52,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const updatePosition = (event: MouseEvent) => {
-    setPosition({ x: event.clientX, y: event.clientY });
-  };
-  useEffect(() => {
-    let rafID: number | null = null;
-
-    const handleMouseMove = (event: MouseEvent) => {
-      updatePosition(event);
-    };
-
-    const animate = () => {
-      rafID = requestAnimationFrame(animate);
-      window.addEventListener("mousemove", handleMouseMove);
-    };
-
-    animate();
-
-    gsap.to(".cursorpointer", {
-      ease: "power4",
-      duration: 0.4,
-    });
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      if (rafID !== null) cancelAnimationFrame(rafID);
-    };
-  }, []);
 
 
   return (
     <html
       lang="en"
-      className={` ${police.variable} ${police1.variable} ${police3.variable} ${police4.variable}`}
+      className={``}
     >
-      <body className={inter.className + "relative"}>
-        <div className="ff bg-white relative flex justify-center items-center w-full">
-          <div
-            style={{ left: `${position.x}px`, top: `${position.y}px` }}
-            className="fixed cursorpointer  pointer-events-none z-50 h-14 will-change-auto inset-0 select-none w-14 border-2 border-black rounded-full "
-          ></div>
+      <body className={inter.className + "relative  text-white  "}>
+        <div className=" bg-custom-red min-h-screen relative flex justify-start items-start w-full">
+          
           <div className="flex flex-col w-full overflow-hidden  ">
-            <Header />
+            <Header/>
             {children}
           </div>
         </div>

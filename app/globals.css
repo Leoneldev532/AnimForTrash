@@ -16,15 +16,7 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-}
+
 
 @layer utilities {
   .text-balance {
@@ -32,95 +24,25 @@ body {
   }
 }
 
-.maskelem {
-  /* background:red;
-  mask-image: url("../public/bb.svg");
-  -webkit-mask-image:url("../public/bb.svg"); */
-  clip-path: url(#beer-pan-clip);
-}
-
-/* .bouteille{
-  background:red;
-  background-blend-mode:luminosity;
-} */
-
-/* Beer can */
-
-.beercan {
-  transform-origin: center center 0;
-}
-
-.ff {
-  font-family: var(--font-baskerville);
-}
-.f2 {
-  font-family: var(--font-Montserrat);
-}
-.bgop {
-  background: linear-gradient(to right, #be1241, #eb3d6c 50%);
-}
-
-.str {
-  text-stroke-width: 1px;
-  text-stroke-color: rgba(136, 132, 132, 0.3);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(187, 187, 187, 0.4);
-  color: rgba(207, 203, 203, 0.1);
-}
-
-.fg {
-  font-family: var(--font-space_Grotesk);
-}
-
-.easeOutExpo {
-  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.card1exp {
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-}
-
-.police4 {
-  font-family: var(--font-Andada_Pro);
-}
-
-/* .bg {
-  background-image: url("../public/grain.png");
-} */
-
-.divim1 {
-  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-}
-
-.linkheader .word {
-  overflow: hidden;
-  height: 28px;
-}
-.cardme {
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-}
-
-.word,
-.line {
-  overflow: hidden !important;
-}
 
 @font-face {
-  font-family: "powergro";
-  src: url("../public/PowerGrotesk-Regular.ttf");
+  font-family: "aeonikr";
+  src: url("../public/font/AeonikTRIAL-Regular.otf");
 }
 
-.fontt {
-  font-family: "powergro";
+
+@font-face {
+  font-family: "aeonikb";
+  src: url("../public/font/AeonikTRIAL-Regular.otf");
 }
 
-.trans {
-  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+.aeronikr  {
+  font-family: "aeonikr";
+}
+.aeronikb  {
+  font-family: "aeonikb";
 }
 
-.abstitlepassetime{
-  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
-}
-.PasseTempsCard:hover .abstitlepassetime{
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+body{
+  font-family: "aeronikr";
 }
