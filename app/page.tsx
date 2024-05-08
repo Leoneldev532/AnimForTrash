@@ -1,248 +1,145 @@
 
 
 "use client"
-import image1 from "@/public/1.jpg"
-import image2 from "@/public/2.jpg"
-import image3 from "@/public/3.jpg"
-import image4 from "@/public/4.jpg"
-import Image from 'next/image'
-import { useEffect, useRef } from 'react'
   const Page = () => {
     
-    const btnHover = useRef<HTMLButtonElement | null >(null)
 
-
-    useEffect(()=>{
-
-      const progressbarre = document.querySelectorAll(".progressbarre") as NodeListOf<HTMLDivElement> 
-      const progressligne = document.querySelectorAll(".progressligne") as NodeListOf<HTMLDivElement> 
-      const txtprogress = document.querySelectorAll(".txtprogress") as NodeListOf<HTMLDivElement> 
-      const imageSlides = document.querySelectorAll(".imageslide") as NodeListOf<HTMLDivElement> 
-
-    
-
-
-      const moveProgression = async (idelement:number) => {
-        return new Promise<void>((resolve) => {
-       let currentHeight = 0;
-
-       txtprogress[idelement].className += " active"
-
-
-        const  intervalId  =  setInterval(()=>{
-          currentHeight += 1;
-          slideMouv(idelement)
-          progressbarre[idelement].style.height = currentHeight + "%"
-          
-          if (currentHeight >= 100) {
-            clearInterval(intervalId);
-            resolve();
-
-            progressbarre[idelement].style.height = 0 + "%"
-          
-            
-            txtprogress[idelement].classList.remove("active")
-
-          }
-        },5000/100)
-        
-      });
-        
-      }
-
-      let shouldRun = true;
-
-      const UpdateProgression = async() =>{
-
-        while (shouldRun) {
-          for (let i = 0; i < progressligne.length; i++) {
-            await moveProgression(i);
-          }
-        }
-
-      }
-     
-      UpdateProgression()
-
-      const slideMouv = (idElement:number) =>{
-            
-        if (imageSlides[idElement]) {
-          imageSlides[idElement].style.opacity = "10";
-
-          for (let i = 0; i < imageSlides.length; i++) {
-            if (i !== idElement) {
-              imageSlides[i].style.opacity = "0";
-            }
-          }
-
-        }
-      }
-
-
-
-    },[])
-
+ 
 
     return (
+      <div className="flex justify-center  min-h-screen w-full items-center">
 
 
-      <div className="flex flex-col relative min-h-screen text-black justify-center h-full items-center w-full">
+          <div className='w-[705px] h-[640px] overflow-hidden flex flex-col gap-y-4 p-4 rounded-2xl bg-black/80 backdrop-blur-lg '>
+              <div className='h-[540px]  flex w-full rounded-2xl  '>
 
-        <div className="absolute  left-[40%] top-[0%] lg:left-[80%]  lg:top-[30%] ">
+              <div className="flex flex-col justify-start items-center h-full w-full bg-black/70  rounded-2xl gap-y-4">
 
-        <svg
-  width={802}
-  height={811}
-  viewBox="0 0 302 311"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <g filter="url(#filter0_f_2_3)">
-    <circle cx="144.5" cy="153.5" r="67.5" fill="#38BBF4" />
-  </g>
-  <defs>
-    <filter
-      id="filter0_f_2_3"
-      x="-12.3"
-      y="-3.3"
-      width="313.6"
-      height="313.6"
-      filterUnits="userSpaceOnUse"
-      colorInterpolationFilters="sRGB"
-    >
-      <feFlood floodOpacity={0} result="BackgroundImageFix" />
-      <feBlend
-        mode="normal"
-        in="SourceGraphic"
-        in2="BackgroundImageFix"
-        result="shape"
-      />
-      <feGaussianBlur
-        stdDeviation="44.65"
-        result="effect1_foregroundBlur_2_3"
-      />
-    </filter>
-  </defs>
+                  <div className='flex gap-x-4 w-full p-4 justify-between items-center '>
+
+                    <div className="w-auto flex justify-start items-center gap-x-4">
+
+                      <div className="h-12 w-12 rounded-full bg-red-500">
+
+                        </div>
+                        <div className="flex flex-col justify-start items-start gap-y-2">
+                          <h3 className="text-sm font-bold">Frank</h3>
+                          <span className="text-xs ">Design Rule</span>
+                        </div>
+
+
+
+                    </div>
+
+                    <div className="flex gap-x-2 justify-start items-center">
+
+                        <span>21:32</span>
+                        <span className="flex gap-x-2 w-full px-4 py-2 rounded-full bg-gray-800/80"> 
+                              <span> to: </span>
+                              <span> leoneltio@gmail.com </span>
+                          </span>
+                    </div>
+
+
+                    </div>
+
+                    <div className="w-full flex flex-col">
+
+                      <p  className="px-4">
+                      Objet : Demande de renseignements sur les produits
+
+Cher [Nom du destinataire],
+
+
+
+
+
+J espère que ce message vous trouvera en bonne santé et de bonne humeur. Je vous écris aujourd hui pour obtenir des informations sur les produits que votre entreprise propose.
+
+Je suis particulièrement intéressé(e) par [Nom du produit ou catégorie de produits], et j aimerais en savoir plus sur les caractéristiques, les avantages et les prix de ces produits.
+
+Si possible, pourriez-vous également me fournir des informations sur les délais de livraison, les frais de livraison et les politiques de retour de votre entreprise ?
+
+Je vous remercie par avance pour votre aide et je suis impatient(e) de recevoir vos réponses. Nhésitez pas à me contacter si vous avez besoin de plus amples informations de ma part.
+
+Cordialement,
+
+[Votre nom]
+[Votre adresse e-mail]
+[Votre numéro de téléphone, si vous souhaitez le fournir]
+
+                      </p>
+
+                    </div>
+
+              </div>
+
+              </div>
+              <div className='w-full flex justify-center items-center'>
+
+                  <div className="flex gap-x-4 bg-black rounded-full px-4 w-4/12  h-10  justify-center items-center ">
+
+                      <button>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20} color={"#ffffff"} fill={"none"}>
+    <path d="M2 18C2 16.4596 2 15.6893 2.34673 15.1235C2.54074 14.8069 2.80693 14.5407 3.12353 14.3467C3.68934 14 4.45956 14 6 14C7.54044 14 8.31066 14 8.87647 14.3467C9.19307 14.5407 9.45926 14.8069 9.65327 15.1235C10 15.6893 10 16.4596 10 18C10 19.5404 10 20.3107 9.65327 20.8765C9.45926 21.1931 9.19307 21.4593 8.87647 21.6533C8.31066 22 7.54044 22 6 22C4.45956 22 3.68934 22 3.12353 21.6533C2.80693 21.4593 2.54074 21.1931 2.34673 20.8765C2 20.3107 2 19.5404 2 18Z" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M14 18C14 16.4596 14 15.6893 14.3467 15.1235C14.5407 14.8069 14.8069 14.5407 15.1235 14.3467C15.6893 14 16.4596 14 18 14C19.5404 14 20.3107 14 20.8765 14.3467C21.1931 14.5407 21.4593 14.8069 21.6533 15.1235C22 15.6893 22 16.4596 22 18C22 19.5404 22 20.3107 21.6533 20.8765C21.4593 21.1931 21.1931 21.4593 20.8765 21.6533C20.3107 22 19.5404 22 18 22C16.4596 22 15.6893 22 15.1235 21.6533C14.8069 21.4593 14.5407 21.1931 14.3467 20.8765C14 20.3107 14 19.5404 14 18Z" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M2 6C2 4.45956 2 3.68934 2.34673 3.12353C2.54074 2.80693 2.80693 2.54074 3.12353 2.34673C3.68934 2 4.45956 2 6 2C7.54044 2 8.31066 2 8.87647 2.34673C9.19307 2.54074 9.45926 2.80693 9.65327 3.12353C10 3.68934 10 4.45956 10 6C10 7.54044 10 8.31066 9.65327 8.87647C9.45926 9.19307 9.19307 9.45926 8.87647 9.65327C8.31066 10 7.54044 10 6 10C4.45956 10 3.68934 10 3.12353 9.65327C2.80693 9.45926 2.54074 9.19307 2.34673 8.87647C2 8.31066 2 7.54044 2 6Z" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M14 6C14 4.45956 14 3.68934 14.3467 3.12353C14.5407 2.80693 14.8069 2.54074 15.1235 2.34673C15.6893 2 16.4596 2 18 2C19.5404 2 20.3107 2 20.8765 2.34673C21.1931 2.54074 21.4593 2.80693 21.6533 3.12353C22 3.68934 22 4.45956 22 6C22 7.54044 22 8.31066 21.6533 8.87647C21.4593 9.19307 21.1931 9.45926 20.8765 9.65327C20.3107 10 19.5404 10 18 10C16.4596 10 15.6893 10 15.1235 9.65327C14.8069 9.45926 14.5407 9.19307 14.3467 8.87647C14 8.31066 14 7.54044 14 6Z" stroke="currentColor" strokeWidth="1.5" />
+</svg>         </button>
+
+
+            <button>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20} color={"#ffffff"} fill={"none"}>
+    <path d="M11 6H15.5C17.9853 6 20 8.01472 20 10.5C20 12.9853 17.9853 15 15.5 15H4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M6.99998 12C6.99998 12 4.00001 14.2095 4 15C3.99999 15.7906 7 18 7 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 </svg>
-     
+</button>
 
-        </div>
+<button>
 
-                <div className="justify-start  w-full items-start flex-col gap-y-2 flex py-5 xl:py-14 lg:px-0 px-4 sm:w-11/12 lg:w-9/12 2xl:w-8/12 ">
-                  <h1 className="text-3xl lg:text-4xl lg:text-balance font-extrabold w-full max-w-full md:max-w-lg leading-normal">
-                    Les lieux touristiques fantastiques et tres beau
-                  </h1>
-                  <span className="border-2 border-blue-400 font-bold  py-1 px-4  rounded-full "> Code By Leonel Yimga </span>
-                </div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20} color={"#ffffff"} fill={"none"}>
+    <path d="M13 6H8.5C6.01472 6 4 8.01472 4 10.5C4 12.9853 6.01472 15 8.5 15H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M17 12C17 12 20 14.2095 20 15C20 15.7906 17 18 17 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+</svg>
+</button>
 
-                <div className="w-full flex justify-center  gap-y-8 xl:flex-row flex-col-reverse items-center xl:items-start h-full "> 
-
-
-              <div className=" min-h-screen  gap-8  w-full flex px-4 lg:px-36 xl:px-0 justify-start items-center flex-col xl:w-1/2 2xl:w-1/3 xl:justify-start xl:items-start ">
-
-              <div className='flex justify-start w-full items-start gap-x-4'> 
-                      <div className="progressligne h-36 min-w-1 rounded-sm bg-gray-200 ">
-                        
-                        <div className='progressbarre transition-all ease-out duration-300 h-0 w-full bg-blue-500'> </div>
-                     
-                        </div>
-
-                        <div className="flex flex-col gap-y-2">
-                        <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
-                        Parc national de Yosemite
-                        </h2>
-                        <p className="text-xs md:text-sm max-w-md">
-                        Il est célèbre pour ses chutes d&apos;eau spectaculaires, ses falaises de granit imposantes et ses séquoias géants. Les visiteurs peuvent profiter de randonnées pédestres, d&apos;escalade, de camping et de photographie dans ce parc magnifique. </p>
-                        </div>
-                      </div>
+<button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20} color={"#ffffff"} fill={"none"}>
+    <path d="M2.5 8.18677C2.60406 6.08705 2.91537 4.77792 3.84664 3.84664C4.77792 2.91537 6.08705 2.60406 8.18677 2.5M21.5 8.18677C21.3959 6.08705 21.0846 4.77792 20.1534 3.84664C19.2221 2.91537 17.9129 2.60406 15.8132 2.5M15.8132 21.5C17.9129 21.3959 19.2221 21.0846 20.1534 20.1534C21.0846 19.2221 21.3959 17.9129 21.5 15.8132M8.18676 21.5C6.08705 21.3959 4.77792 21.0846 3.84664 20.1534C2.91537 19.2221 2.60406 17.9129 2.5 15.8132" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M2.49986 12H21.4999" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M6 12C6 8.68629 8.68629 6 12 6C12 7.65685 13.3431 9 15 9C15.6755 9 16.2989 8.77672 16.8004 8.39993C17.5536 9.40273 18 10.6492 18 12M17.1973 15C16.1599 16.7934 14.2208 18 12 18C9.77915 18 7.84012 16.7934 6.80269 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+</svg>
+</button>
 
 
-
-                      
-              <div className='flex justify-start w-full items-start gap-x-4'> 
-                      <div className="progressligne h-36 min-w-1 rounded-sm bg-gray-200 ">
-                        
-                        <div className='progressbarre transition-all ease-out duration-300 h-0 w-full bg-blue-500'> </div>
-                     
-                        </div>
-
-                       
-                        <div className="flex flex-col gap-y-2">
-                        <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
-                        Plage de Navagio
-                        </h2>
-                        <p className="text-xs md:text-sm max-w-md">
-                        La plage de Navagio est une baie isolée sur l île de Zante en Grèce. Elle est accessible uniquement par bateau et est entourée de falaises calcaires escarpées
-                      </p> </div>
-                      </div>
+<button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20} color={"#ffffff"} fill={"none"}>
+    <path d="M3.75 5H9.17963C9.84834 5 10.4728 4.6658 10.8437 4.1094L11.6563 2.8906C12.0272 2.3342 12.6517 2 13.3204 2H17.8085C18.6693 2 19.4336 2.55086 19.7058 3.36754L20.25 5M21.75 5H8.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M20.25 5L19.6303 14.906C19.6088 15.2333 19.5887 15.5385 19.5685 15.8235M5.25 5L5.85461 14.8966C6.00945 17.3107 6.08688 18.5177 6.72868 19.3857C7.046 19.8149 7.4548 20.1771 7.92905 20.4493C8.8883 21 10.1731 21 12.7427 21H15.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M20.75 19C20.75 17.3431 19.4069 16 17.75 16C16.0931 16 14.75 17.3431 14.75 19C14.75 20.6569 16.0931 22 17.75 22C19.4069 22 20.75 20.6569 20.75 19Z" stroke="currentColor" strokeWidth="1.5" />
+</svg>
+</button>
 
 
+<button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20} color={"#ffffff"} fill={"none"}>
+    <path d="M2 16C2 13.6611 2 12.4917 2.53647 11.6379C2.81621 11.1927 3.19267 10.8162 3.63789 10.5365C4.49167 10 5.66111 10 8 10H16C18.3389 10 19.5083 10 20.3621 10.5365C20.8073 10.8162 21.1838 11.1927 21.4635 11.6379C22 12.4917 22 13.6611 22 16C22 18.3389 22 19.5083 21.4635 20.3621C21.1838 20.8073 20.8073 21.1838 20.3621 21.4635C19.5083 22 18.3389 22 16 22H8C5.66111 22 4.49167 22 3.63789 21.4635C3.19267 21.1838 2.81621 20.8073 2.53647 20.3621C2 19.5083 2 18.3389 2 16Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M20 10C20 8.59987 20 7.8998 19.7275 7.36502C19.4878 6.89462 19.1054 6.51217 18.635 6.27248C18.1002 6 17.4001 6 16 6H8C6.59987 6 5.8998 6 5.36502 6.27248C4.89462 6.51217 4.51217 6.89462 4.27248 7.36502C4 7.8998 4 8.59987 4 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M18 6C18 4.11438 18 3.17157 17.4142 2.58579C16.8284 2 15.8856 2 14 2H10C8.11438 2 7.17157 2 6.58579 2.58579C6 3.17157 6 4.11438 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M15 14C15 15.1046 14.1046 16 13 16H11C9.89543 16 9 15.1046 9 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+</svg>
+</button>
 
 
+                  </div>
+
+              </div>
+
+          </div>
 
 
-                      <div className='flex justify-start w-full items-start gap-x-4'> 
-                      <div className="progressligne h-36 min-w-1 rounded-sm bg-gray-200 ">
-                        
-                        <div className='progressbarre transition-all ease-out duration-300 h-0 w-full bg-blue-500'> </div>
-                     
-                        </div>
-                        
-                        <div className="flex flex-col gap-y-2">
-                        <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
-                        Forêt amazonienne
-                        </h2>
-                        <p className="text-xs md:text-sm max-w-md">
-                        Elle abrite une biodiversité incroyablement riche, y compris des milliers d espèces de plantes, d animaux et d insectes. Les visiteurs peuvent explorer la forêt en bateau, en kayak ou à pied, et découvrir les cultures indigènes qui vivent dans la région.
-                        </p>
-                        </div>
-
-                      </div>
-
-
-                      <div className='flex justify-start w-full items-start gap-x-4'> 
-                      <div className="progressligne h-36 min-w-1 rounded-sm bg-gray-200 ">
-                        
-                        <div className='progressbarre transition-all ease-out duration-300 h-0 w-full bg-blue-500'> </div>
-                     
-                        </div>
-                        <div className="flex flex-col gap-y-2">
-                        <h2 className ={`txtprogress text-xl  max-w-sm font-bold `}   >
-                        Canyon de l&apos;Antilope 
-                        </h2>
-                        <p className="text-xs md:text-sm max-w-md">
-                        Les visiteurs peuvent explorer le canyon à pied avec un guide et prendre des photos étonnantes des formations rocheuses. Le canyon est particulièrement beau pendant les heures de lumière du jour, lorsque les rayons du soleil pénètrent dans les fissures et créent des effets de lumière spectaculaires </p>
-                        </div>
-                      </div>
-
-
-
-                      
-                    
-
-                </div>
-
-                <div className="xl:w-1/3 w-11/12 lg:w-9/12 xl:px-0  rounded-xl flex justify-center items-center xl:justify-start overflow-hidden relative h-[40vh]  xl:items-start lg:h-[450px]  xl:h-[750px]  ">
-
-                    <div className="imageslide  absolute transition-all ease-out duration-500 rounded-xl  overflow-hidden  h-[550px]  w-full" >
-                        <Image src={image1} className=" z-0 w-full h-full object-cover  "  alt="image" />
-                    </div>
-                    
-                    <div className="imageslide absolute transition-all ease-out duration-500  rounded-xl  overflow-hidden h-[550px]  w-full" >
-                        <Image src={image2} className=" z-0 w-full h-full object-cover   "  alt="image1" />
-                    </div>
-                    <div className="imageslide absolute transition-all ease-out duration-500  rounded-xl  overflow-hidden h-[550px]  w-full" >
-                        <Image src={image3} className=" z-0 w-full h-full  object-cover   "  alt="image2" />
-                    </div>
-
-                    <div className="imageslide absolute transition-all ease-out duration-500  rounded-xl  overflow-hidden h-[550px]  w-full" >
-                        <Image src={image4} className=" z-0 w-full h-full  object-cover   "  alt="image2" />
-                    </div>
-
-                </div>
-                </div>
-
-      </div>
+       </div> 
     )
   }
   
